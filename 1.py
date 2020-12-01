@@ -1,6 +1,6 @@
 import aoc
 
-data = map(int, aoc.get_input(1).splitlines())
+data = tuple(map(int, aoc.get_input(1).splitlines()))
 
 def part1():
     for num1 in data:
@@ -17,5 +17,5 @@ def part2():
                     print(num1, num2)
                     return num1 * num2 * num3
 
-print(part1())
-print(part2())
+print("Part 1:", part1())
+print("Part 2:", part2())

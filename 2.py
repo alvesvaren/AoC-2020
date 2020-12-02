@@ -3,8 +3,7 @@ import re
 
 data = aoc.get_input(2).splitlines()
 
-count1 = 0
-count2 = 0
+count1, count2 = 0, 0
 
 for password in data:
     minc, maxc, letter, passwd = re.match(

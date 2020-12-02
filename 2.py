@@ -14,7 +14,7 @@ for password in data:
     if passwd.count(letter) >= minc and passwd.count(letter) <= maxc:
         count1 += 1
 
-    if ((passwd[minc-1] == letter) is not (passwd[maxc-1] == letter)):
+    if (passwd[minc-1] == letter) is not (passwd[maxc-1] == letter):
         count2 += 1
 
 print("Part 1:", count1)

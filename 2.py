@@ -7,10 +7,11 @@ count1 = 0
 count2 = 0
 for password in data:
     minc, maxc, letter, passwd = match = re.match(
-        r"(\d+)-(\d+) ([a-z]): ([a-z]+)", password
-    ).groups()
+        r"(\d+)-(\d+) ([a-z]): ([a-z]+)", password).groups()
+
     if passwd.count(letter) >= int(minc) and passwd.count(letter) <= int(maxc):
         count1 += 1
+    
     if ((passwd[int(minc)-1] == letter) is not (passwd[int(maxc)-1] == letter)):
         count2 += 1
 

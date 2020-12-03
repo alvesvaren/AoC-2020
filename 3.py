@@ -12,7 +12,7 @@ for y, line in enumerate(data):
 
 def check_slope(dx: int, dy: int):
     count, x, y = 0, 0, 0
-    while 1:
+    while True:
         try:
             x += dx
             y += dy

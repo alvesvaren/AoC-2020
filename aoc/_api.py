@@ -1,3 +1,4 @@
+from typing import Union
 import requests
 from pathlib import Path
 from datetime import datetime
@@ -6,7 +7,7 @@ _SESSION_FILE_NAME = "session.txt"
 _YEAR_FILE_NAME = "year.txt"
 
 
-def _set_read_file(filename: str, default: str = None) -> str:
+def _set_read_file(filename: str, default: str = None) -> Union[str, None]:
     try:
         with open(filename) as file:
             return file.read()
@@ -30,7 +31,7 @@ if not YEAR:
     YEAR = _set_read_file(
         _YEAR_FILE_NAME,
         str(datetime.now().year))
-YEAR = YEAR.strip()
+YEAR = int(YEAR.strip())
 
 def get_input(day: int, year: int = YEAR, overwrite: bool = False):
     """

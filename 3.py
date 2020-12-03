@@ -23,10 +23,10 @@ def check_slope(dx: int, dy: int):
     return count
 
 
-val1 = check_slope(3, 1)
-val2 = val1 * \
+trees1 = check_slope(3, 1)
+trees2 = trees1 * \
     check_slope(1, 1) * check_slope(5, 1) * \
     check_slope(7, 1) * check_slope(1, 2)
 
-print("Part 1:", val1)
-print("Part 2:", val2)
+print("Part 1:", trees1)
+print("Part 2:", trees2)

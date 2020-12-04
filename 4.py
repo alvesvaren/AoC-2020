@@ -12,7 +12,7 @@ values = {
     "hgt": r"(\d+)(cm|in)",
     "hcl": r"#([a-f0-9]{6})",
     "ecl": r"([a-z]{3})",
-    "pid": r"(\d{9})"
+    "pid": r"(\d{9})$"
 }
 
 valids = []
@@ -76,6 +76,4 @@ for passport in data:
         if fields2 == 7:
             count2 += 1
             valids.append(passport)
-with open("valids_my.txt") as file:
-    file.write("\n\n".join(valids))
 print(count2)

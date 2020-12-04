@@ -20,8 +20,7 @@ for passport in passports:
         if part[0] in fields:
             valid1 += 1
 
-            things = fields[part[0]]
-            match = re.match(things, part[1])
+            match = re.match(fields[part[0]], part[1])
             if match:
                 num = -1
                 try:

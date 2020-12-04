@@ -17,10 +17,11 @@ for passport in passports:
     valid1, valid2 = 0, 0
     for part in re.split(r"[\n ]", passport):
         part = part.split(":")
-        if part[0] in fields:
+        field = part[0]
+        if field in fields:
             valid1 += 1
 
-            match = re.match(fields[part[0]], part[1])
+            match = re.match(fields[field], part[1])
             if match:
                 num = -1
                 try:
@@ -29,7 +30,6 @@ for passport in passports:
                 except ValueError:
                     pass
                 val = match.groups()[0]
-                field = part[0]
                 thing = (
                     field == "byr" and num in range(1920, 2003),
                     field == "iyr" and num in range(2010, 2021),

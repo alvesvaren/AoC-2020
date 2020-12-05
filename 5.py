@@ -3,7 +3,7 @@ import aoc
 data = aoc.get_input(5).splitlines()
 passes = []
 
-for boarding_pass in enumerate(data):
+for boarding_pass in data:
     row, midrow, maxrow = 0, 0, 128
     seat, midseat, maxseat = 0, 0, 8
     for char in boarding_pass:

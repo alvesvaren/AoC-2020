@@ -18,11 +18,12 @@ for boarding_pass in data:
             seat = midseat
     passes.append(row*8 + seat)
 
-last_value, answer2 = min(passes) - 1, 0
+last_value =  min(passes) - 1
+answer1, answer2 = max(passes), 0
 for row in sorted(passes):
     if last_value != row - 1:
         answer2 = last_value + 1
     last_value = row
 
-print("Part 1:", max(passes))
+print("Part 1:", answer1)
 print("Part 2:", answer2)

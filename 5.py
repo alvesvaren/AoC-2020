@@ -7,7 +7,8 @@ for boarding_pass in data:
     row, midrow, maxrow = 0, 0, 128
     seat, midseat, maxseat = 0, 0, 8
     for char in boarding_pass:
-        midrow, midseat = (row + maxrow)//2, (seat + maxseat)//2
+        midrow  = (row + maxrow)//2
+        midseat = (seat + maxseat)//2
         if char == "F":
             maxrow = midrow
         elif char == "B":
@@ -16,9 +17,9 @@ for boarding_pass in data:
             maxseat = midseat
         else:
             seat = midseat
-    passes.append(row*8 + seat)
+    passes.append(row * 8 + seat)
 
-last_value =  min(passes) - 1
+last_value = min(passes) - 1
 answer1, answer2 = max(passes), 0
 for row in sorted(passes):
     if last_value != row - 1:

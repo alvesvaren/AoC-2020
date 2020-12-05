@@ -16,7 +16,6 @@ for boarding_pass in enumerate(data):
             maxseat = midseat
         else:
             seat = midseat
-    
     passes.append(row*8 + seat)
 
 last_value, answer2 = min(passes) - 1, 0

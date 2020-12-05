@@ -4,19 +4,19 @@ data = aoc.get_input(5).splitlines()
 passes = []
 
 for i, boarding_pass in enumerate(data):
-    row, midworth, maxworth = 0, 0, 128
-    seat, cmidworth, cmaxworth = 0, 0, 8
+    row, midrow, maxrow = 0, 0, 128
+    seat, midseat, maxseat = 0, 0, 8
     bit = False
     for j, char in enumerate(boarding_pass):
-        midworth, cmidworth = (row + maxworth)//2, (seat + cmaxworth)//2
+        midrow, midseat = (row + maxrow)//2, (seat + maxseat)//2
         if char == "F":
-            maxworth = midworth
+            maxrow = midrow
         elif char == "B":
-            row = midworth
+            row = midrow
         elif char == "L":
-            cmaxworth = cmidworth
+            maxseat = midseat
         else:
-            seat = cmidworth
+            seat = midseat
     
     passes.append(row*8 + seat)
 

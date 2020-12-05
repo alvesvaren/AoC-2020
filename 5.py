@@ -3,11 +3,10 @@ import aoc
 data = aoc.get_input(5).splitlines()
 passes = []
 
-for i, boarding_pass in enumerate(data):
+for boarding_pass in enumerate(data):
     row, midrow, maxrow = 0, 0, 128
     seat, midseat, maxseat = 0, 0, 8
-    bit = False
-    for j, char in enumerate(boarding_pass):
+    for char in boarding_pass:
         midrow, midseat = (row + maxrow)//2, (seat + maxseat)//2
         if char == "F":
             maxrow = midrow

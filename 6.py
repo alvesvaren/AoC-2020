@@ -1,8 +1,8 @@
 import aoc
 
 data = aoc.get_input(6).split("\n\n")
-
 sum1, sum2 = 0, 0
+
 for group in data:
     anyone_answered = set()
     each_answer, people = [], 0

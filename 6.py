@@ -17,7 +17,7 @@ for group in data:
         if answer not in checked and \
             each_answer.count(answer) == people:
             sum2 += 1
-        checked.add(answer)
+            checked.add(answer)
 
 print("Part 1:", sum1)
 print("Part 2:", sum2)

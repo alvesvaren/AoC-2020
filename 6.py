@@ -12,7 +12,6 @@ for group in data:
             anyone_answered.add(question)
             each_answer.append(question)
     sum1 += len(anyone_answered)
-
     checked = set()
     for answer in each_answer:
         if answer not in checked and each_answer.count(answer) == people:

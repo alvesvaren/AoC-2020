@@ -18,8 +18,8 @@ for rule in data:
 
 
 def recurse_gold(value="shiny gold", contains_gold=set()):
+    contains_gold.add(value)
     for color in parents[value]:
-        contains_gold.add(color)
         recurse_gold(color, contains_gold)
     return len(contains_gold)
 

@@ -31,5 +31,5 @@ def recurse_find_inner(value="shiny gold"):
     return total_count
 
 
-print(recurse_gold())
-print(recurse_find_inner())
+print("Part 1:", recurse_gold())
+print("Part 2:", recurse_find_inner())

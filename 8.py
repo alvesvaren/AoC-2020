@@ -1,6 +1,6 @@
 import aoc
 
-data = list(map(str.split, aoc.get_input(8).splitlines()))
+data = *map(str.split, aoc.get_input(8).splitlines()),
 
 
 def step():

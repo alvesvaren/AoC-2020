@@ -1,7 +1,7 @@
 import aoc
+from typing import List, Tuple
 
-data = *map(str.split, aoc.get_input(8).splitlines()),
-
+data: Tuple[List[str], ...] = (*map(str.split, aoc.get_input(8).splitlines()),)
 
 def step():
     index, acc = 0, 0
@@ -10,7 +10,7 @@ def step():
     while 1:
         if index >= len(data):
             return (True, acc)
-        instruction, value = tuple(data[index])
+        instruction, value = data[index]
         value = int(value)
         if index in ran_instuctions:
             return (False, acc)

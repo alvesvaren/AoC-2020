@@ -1,5 +1,4 @@
 import aoc
-import re
 
 data = [line.split(" ") for line in aoc.get_input(8).splitlines()]
 
@@ -30,19 +29,18 @@ def step():
         
         index += 1
 
-def flip_instruction(index):
+def flip(index):
     if data[index][0] == "nop":
         data[index][0] = "jmp"
     elif data[index][0] == "jmp":
         data[index][0] = "nop"
 
 found_thing = False
-index = 0
-acc2 = 0
+index, acc2 = 0, 0
 while not found_thing:
-    flip_instruction(index)
+    flip(index)
     acc = step()
-    flip_instruction(index)
+    flip(index)
     if acc[0]:
         acc2 = acc[1]
         break

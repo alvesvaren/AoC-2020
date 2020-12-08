@@ -4,7 +4,7 @@ import re
 data = [line.split(" ") for line in aoc.get_input(8).splitlines()]
 
 
-def step(allow_infinite_loops = True, verbose = False):
+def step():
     index = 0
     acc = 0
     ran_instuctions = set()
@@ -14,11 +14,8 @@ def step(allow_infinite_loops = True, verbose = False):
             instruction, value = tuple(data[index])
         except IndexError:
             return (True, acc)
-        if verbose:
-            print(f"{instruction} {value}, i={index} acc={acc}")
         value = int(value)
-        if (index in ran_instuctions and not allow_infinite_loops) \
-            or index > len(data):
+        if index in ran_instuctions or index > len(data):
             return (index > len(data), acc)
         else:
             ran_instuctions.add(index)
@@ -40,17 +37,17 @@ def flip_instruction(index):
         data[index][0] = "nop"
 
 found_thing = False
-index_to_change = 0
+index = 0
+acc2 = 0
 while not found_thing:
-    flip_instruction(index_to_change)
-    acc = step(False)
-    print(acc)
+    flip_instruction(index)
+    acc = step()
+    flip_instruction(index)
     if acc[0]:
-        print("ACCC", acc[1])
-        quit()
+        acc2 = acc[1]
+        break
     else:
-        flip_instruction(index_to_change)
-        index_to_change += 1
+        index += 1
 
-print(step(False)[1])
-# print(step(True, True))
+print("Part 1:", step()[1])
+print("Part 2:", acc2)

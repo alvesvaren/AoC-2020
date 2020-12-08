@@ -29,15 +29,14 @@ def flip(index):
     elif data[index][0] == "jmp":
         data[index][0] = "nop"
 
-index, acc2 = 0, 0
-while 1:
+acc2 = 0
+for index in range(len(data)):
     flip(index)
     acc = step()
     flip(index)
     if acc[0]:
         acc2 = acc[1]
         break
-    index += 1
 
 print("Part 1:", step()[1])
 print("Part 2:", acc2)

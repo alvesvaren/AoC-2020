@@ -23,11 +23,13 @@ def step():
             continue
         index += 1
 
+
 def flip(index):
     if data[index][0] == "nop":
         data[index][0] = "jmp"
     elif data[index][0] == "jmp":
         data[index][0] = "nop"
+
 
 acc2 = 0
 for index in range(len(data)):

@@ -4,8 +4,7 @@ data = *map(str.split, aoc.get_input(8).splitlines()),
 
 
 def step():
-    index = 0
-    acc = 0
+    index, acc = 0, 0
     ran_instuctions = set()
 
     while 1:

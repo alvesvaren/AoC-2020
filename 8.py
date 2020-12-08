@@ -9,24 +9,18 @@ def step():
     ran_instuctions = set()
 
     while 1:
-        try:
-            instruction, value = tuple(data[index])
-        except IndexError:
+        if index >= len(data):
             return (True, acc)
+        instruction, value = tuple(data[index])
         value = int(value)
-        if index in ran_instuctions or index > len(data):
-            return (index > len(data), acc)
-        else:
-            ran_instuctions.add(index)
-        if instruction == "nop":
-            pass
-        elif instruction == "acc":
+        if index in ran_instuctions:
+            return (False, acc)
+        ran_instuctions.add(index)
+        if instruction == "acc":
             acc += value
         elif instruction == "jmp":
             index += value
             continue
-        
-        
         index += 1
 
 def flip(index):
@@ -35,17 +29,15 @@ def flip(index):
     elif data[index][0] == "jmp":
         data[index][0] = "nop"
 
-found_thing = False
 index, acc2 = 0, 0
-while not found_thing:
+while 1:
     flip(index)
     acc = step()
     flip(index)
     if acc[0]:
         acc2 = acc[1]
         break
-    else:
-        index += 1
+    index += 1
 
 print("Part 1:", step()[1])
 print("Part 2:", acc2)

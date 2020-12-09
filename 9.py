@@ -1,5 +1,4 @@
 import aoc
-from itertools import permutations
 
 data = *map(int, aoc.get_input(9).splitlines()),
 

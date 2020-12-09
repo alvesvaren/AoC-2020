@@ -14,7 +14,7 @@ for end in range(length, len(data)):
     if not any_matches:
         print("Part 1:", to_sum)
         sum2, starti, endi = 0, 0, 0
-        largest_range = []
+        largest_range = range(0)
         for starti in range(0, end):
             i = starti
             sum2 = 0

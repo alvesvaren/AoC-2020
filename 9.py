@@ -13,15 +13,15 @@ for end in range(length, len(data)):
 
     if not any_matches:
         print("Part 1:", to_sum)
-        sum2, starti, endi = 0, 0, 0
+        sum_to, starti, endi = 0, 0, 0
         largest_range = range(0)
         for starti in range(0, end):
             i = starti
-            sum2 = 0
-            while sum2 < to_sum and i < end:
-                sum2 += data[i]
+            sum_to = 0
+            while sum_to < to_sum and i < end:
+                sum_to += data[i]
                 i += 1
-            if sum2 != to_sum:
+            if sum_to != to_sum:
                 continue
             range_thing = range(starti, i-1)
             if len(range_thing) > len(largest_range):

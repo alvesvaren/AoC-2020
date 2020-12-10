@@ -5,7 +5,7 @@ from collections import defaultdict
 data = *map(int, aoc.get_input(10).splitlines()),
 
 differences = defaultdict(int)
-data = list(sorted((0,) + data + (max(data)+3,)))
+data = sorted((0,) + data + (max(data)+3,))
 for adapter, other_adapter in zip(data, data[1:]):
     differences[abs(other_adapter - adapter)] += 1
 

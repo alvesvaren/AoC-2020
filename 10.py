@@ -22,4 +22,4 @@ def count_combinations(start):
     return count
 
 print("Part 1:", differences[1] * differences[3])
-print("Part 2:", count_combinations(0))
+print("Part 2:", count_combinations(data[0]))

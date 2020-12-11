@@ -31,18 +31,17 @@ def get_around(x: int, y: int) -> int:
             if prev_state[x + offset[0], y + offset[1]] == "#":
                 adjacent_count += 1
         except KeyError:
-            pass
+            continue
     return adjacent_count
 
 
 def get_visible(x: int, y: int) -> int:
     visible_count = 0
     for offset in offsets:
-        offset_offset = 1
         for i in range(1, max(maxx, maxy)):
-            thing = offset[0] * i, offset[1] * i
+            current_offset = offset[0] * i, offset[1] * i
             try:
-                value = prev_state[x + thing[0], y + thing[1]]
+                value = prev_state[x + current_offset[0], y + current_offset[1]]
             except KeyError:
                 break
             if value == "#":
@@ -61,23 +60,22 @@ def step(visibility_method, maxcount) -> bool:
                 seatmap[x, y] = "#"
                 anything_changed = True
             elif prev_state[x, y] == "#" and visibility_method(x, y) >= maxcount:
-
                 seatmap[x, y] = "L"
                 anything_changed = True
     return anything_changed
 
 
-start_map = copy(seatmap)
+seatmap_copy = copy(seatmap)
 while step(get_around, 4):
     prev_state = copy(seatmap)
 
-count = 0
+count1 = 0
 for y in range(maxy):
     for x in range(maxx):
         if seatmap[x, y] == "#":
-            count += 1
+            count1 += 1
 
-seatmap = start_map
+seatmap = seatmap_copy
 while step(get_visible, 5):
     prev_state = copy(seatmap)
 
@@ -87,5 +85,5 @@ for y in range(maxy):
         if seatmap[x, y] == "#":
             count2 += 1
 
-print("Part 1:", count)
+print("Part 1:", count1)
 print("Part 2:", count2)

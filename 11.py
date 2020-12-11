@@ -41,7 +41,8 @@ def get_visible(x: int, y: int) -> int:
         for i in range(1, max(maxx, maxy)):
             current_offset = offset[0] * i, offset[1] * i
             try:
-                value = prev_state[x + current_offset[0], y + current_offset[1]]
+                value = prev_state[x + current_offset[0],
+                                   y + current_offset[1]]
             except KeyError:
                 break
             if value == "#":

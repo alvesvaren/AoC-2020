@@ -47,7 +47,7 @@ for instruction in data:
             we, wn = -wn, -we
     elif orig_direction == "L":
         if value == 90:
-            we, wn = wn, we
+            we, wn = -wn, we
         elif value == 270:
             we, wn = wn, -we
         else:

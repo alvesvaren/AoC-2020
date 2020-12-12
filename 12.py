@@ -61,5 +61,5 @@ for instruction in data:
     elif orig_direction == "W":
         we -= value
 
-print(abs(e)+abs(n))
-print(abs(e2)+abs(n2))
+print("Part 1:", abs(e)+abs(n))
+print("Part 2:", abs(e2)+abs(n2))

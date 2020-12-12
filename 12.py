@@ -2,8 +2,8 @@ import aoc,re
 
 data = aoc.get_input(12).splitlines()
 
-x,y,r = 0, 0, 0
-
+e,n,r = 0, 0, 0
+we, wn = 1, 10
 for instruction in data:
     direction, value = re.match(r"([NSFWELR])(\d+)", instruction).groups()
     value = int(value)
@@ -23,12 +23,12 @@ for instruction in data:
     elif direction == "L":
         r += value//90
     elif direction == "N":
-        x += value
+        e += value
     elif direction == "S":
-        x -= value
+        e -= value
     elif direction == "E":
-        y += value
+        n += value
     elif direction == "W":
-        y -= value
+        n -= value
     
-print(abs(x)+abs(y))
+print(abs(e)+abs(n))

@@ -60,8 +60,6 @@ for instruction in data:
         we += value
     elif orig_direction == "W":
         we -= value
-    # print(instruction, e, n, r)
-    print(instruction, we, wn, e2, n2)
 
 print(abs(e)+abs(n))
 print(abs(e2)+abs(n2))

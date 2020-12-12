@@ -15,7 +15,7 @@ for group in data:
     checked = set()
     for answer in each_answer:
         if answer not in checked and \
-            each_answer.count(answer) == people:
+                each_answer.count(answer) == people:
             checked.add(answer)
             sum2 += 1
 

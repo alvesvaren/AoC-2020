@@ -3,6 +3,7 @@ from typing import List, Tuple
 
 data: Tuple[List[str], ...] = (*map(str.split, aoc.get_input(8).splitlines()),)
 
+
 def step():
     index, acc = 0, 0
     ran_instuctions = set()

@@ -7,7 +7,7 @@ for boarding_pass in data:
     row, midrow, maxrow = 0, 0, 128
     seat, midseat, maxseat = 0, 0, 8
     for char in boarding_pass:
-        midrow  = (row + maxrow)//2
+        midrow = (row + maxrow)//2
         midseat = (seat + maxseat)//2
         if char == "F":
             maxrow = midrow

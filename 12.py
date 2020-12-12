@@ -44,14 +44,14 @@ for instruction in data:
         elif value == 270:
             we, wn = -wn, we
         else:
-            we, wn = -wn, -we
+            we, wn = -we, -wn
     elif orig_direction == "L":
         if value == 90:
             we, wn = -wn, we
         elif value == 270:
             we, wn = wn, -we
         else:
-            we, wn = -wn, -we
+            we, wn = -we, -wn
     elif orig_direction == "N":
         wn += value
     elif orig_direction == "S":

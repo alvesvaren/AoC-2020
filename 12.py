@@ -1,15 +1,16 @@
-import aoc,re
+import aoc
+import re
 
 data = aoc.get_input(12).splitlines()
 
-n,e,r = 0, 0, 0
+n, e, r = 0, 0, 0
 e2, n2 = 0, 0
 we, wn = 10, 1
 for instruction in data:
     direction, value = re.match(r"([NSFWELR])(\d+)", instruction).groups()
     value = int(value)
     orig_direction = direction
-    
+
     if direction == "F":
         r = r % 4
         if r == 1:
@@ -20,7 +21,7 @@ for instruction in data:
             direction = "S"
         elif r == 0:
             direction = "E"
-        
+
         e2 += we * value
         n2 += wn * value
 
@@ -36,7 +37,7 @@ for instruction in data:
         e += value
     elif direction == "W":
         e -= value
-    
+
     if orig_direction == "R":
         if value == 90:
             we, wn = wn, -we

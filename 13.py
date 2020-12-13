@@ -1,9 +1,9 @@
 import aoc
 from sympy.ntheory.modular import crt
-arrival, schedule = aoc.get_input(13).splitlines()
 
-arrival = int(arrival)
+arrival, schedule = aoc.get_input(13).splitlines()
 busses = schedule.split(",")
+arrival = int(arrival)
 
 minimum_bus = ()
 for bus in busses:

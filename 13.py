@@ -5,7 +5,7 @@ arrival, schedule = aoc.get_input(13).splitlines()
 arrival = int(arrival)
 busses = schedule.split(",")
 
-minimum_bus = tuple()
+minimum_bus = ()
 for bus in busses:
     if bus == "x":
         continue

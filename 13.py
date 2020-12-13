@@ -11,9 +11,9 @@ for bus in busses:
         continue
     bus = int(bus)
 
-    first_arrival_from_bus_later_than_arrival_timestamp = max(range(bus, arrival+bus, bus))
-    if not minimum_bus or first_arrival_from_bus_later_than_arrival_timestamp < minimum_bus[1]:
-        minimum_bus = (bus, first_arrival_from_bus_later_than_arrival_timestamp)
+    first_bus_after_arrival = max(range(bus, arrival+bus, bus))
+    if not minimum_bus or first_bus_after_arrival < minimum_bus[1]:
+        minimum_bus = (bus, first_bus_after_arrival)
 
 # https://www.geeksforgeeks.org/python-sympy-crt-method/ heh
 m = []

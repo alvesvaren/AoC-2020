@@ -13,9 +13,7 @@ for instruction, value in data:
         value = int(value)
 
         def gen_addresses(start_address, new_mask):
-            if not new_mask:
-                yield 0
-            else:
+            if new_mask:
                 for curr_address in gen_addresses(start_address//2, new_mask[:-1]):
                     current_bit = new_mask[-1]
                     curr_address *= 2
@@ -25,6 +23,8 @@ for instruction, value in data:
                         yield curr_address + 1
                     if current_bit == "X":
                         yield curr_address
+            else:
+                yield 0
         for address in gen_addresses(address1, mask):
             mem2[address] = value
         value |= int(mask.replace("X", "0"), 2)

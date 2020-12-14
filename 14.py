@@ -30,5 +30,5 @@ for instruction, value1 in data:
     elif instruction == "mask":
         mask = value1
 
-print(sum(mem1.values()))
-print(sum(mem2.values()))
+print("Part 1:", sum(mem1.values()))
+print("Part 2:", sum(mem2.values()))

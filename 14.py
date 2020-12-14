@@ -7,12 +7,13 @@ data = *map(lambda x: x.split(" = "), aoc.get_input(14).splitlines()),
 
 mem1, mem2 = defaultdict(int), defaultdict(int)
 mask = "", ""
-for instruction,value1 in data:
+for instruction, value1 in data:
     if instruction.startswith("mem"):
         address1 = int(re.split("[\[\]]", instruction)[1])
         value1 = int(value1)
         value2 = value1
         flip = False
+
         def gen_addresses(base_mask):
             address = 0
             while 1:

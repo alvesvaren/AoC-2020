@@ -4,7 +4,7 @@ from collections import defaultdict
 
 data = *map(int,aoc.get_input(15).split(",")),
 
-def gen_numbers(max_num):
+def calculate_numbers(max_num):
     start = iter(data)
     spoken = defaultdict(list)
     num = 0
@@ -22,5 +22,5 @@ def gen_numbers(max_num):
         index += 1
     return num
 
-print("Part 1:", gen_numbers(2020))
-print("Part 2:", gen_numbers(30000000))
+print("Part 1:", calculate_numbers(2020))
+print("Part 2:", calculate_numbers(30000000))

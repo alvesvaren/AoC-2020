@@ -2,7 +2,8 @@ import aoc
 from copy import copy
 from collections import defaultdict
 
-data = *map(int,aoc.get_input(15).split(",")),
+data = *map(int, aoc.get_input(15).split(",")),
+
 
 def calculate_numbers(max_num):
     start = iter(data)
@@ -21,6 +22,7 @@ def calculate_numbers(max_num):
         spoken[num].append(index)
         index += 1
     return num
+
 
 print("Part 1:", calculate_numbers(2020))
 print("Part 2:", calculate_numbers(30000000))

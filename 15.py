@@ -1,5 +1,4 @@
 import aoc
-from copy import copy
 from collections import defaultdict
 
 data = *map(int, aoc.get_input(15).split(",")),

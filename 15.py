@@ -12,7 +12,6 @@ def gen_numbers(max_num):
     for _num in start:
         num = _num
         spoken[num].append(index)
-        yield _num
         index += 1
     while index <= max_num:
         if len(spoken[num]) <= 1:
@@ -20,8 +19,8 @@ def gen_numbers(max_num):
         else:
             num = spoken[num][-1] - spoken[num][-2]
         spoken[num].append(index)
-        yield num
         index += 1
+    return num
 
-print(tuple(gen_numbers(2020))[-1])
-print(tuple(gen_numbers(30000000))[-1])
+print("Part 1:", gen_numbers(2020))
+print("Part 2:", gen_numbers(30000000))

@@ -6,11 +6,10 @@ data = *map(int, aoc.get_input(15).split(",")),
 
 
 def calculate_numbers(max_num):
-    start = iter(data)
     spoken = defaultdict(list)
     num = 0
     index = 1
-    for _num in start:
+    for _num in data:
         num = _num
         spoken[num].append(index)
         index += 1

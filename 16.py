@@ -1,7 +1,6 @@
 import aoc
 import re
 from collections import defaultdict
-from itertools import chain, permutations
 from sys import setrecursionlimit
 setrecursionlimit(20000)
 
@@ -38,7 +37,6 @@ for ticket in nearby:
 valid_tickets = *filter(lambda x: x not in invalid, nearby),
 
 works_for_index = defaultdict(set)
-
 for i in range(len(rules)):
     for rule in new_rules.items():
         works_for_index[i].add(rule)
@@ -58,14 +56,12 @@ for key, value in works_for_index.items():
         works_for_index[key].add(item[0])
 
 used = set()
-
 while any([len(i) > 1 for i in works_for_index.values()]):
     for key, i in works_for_index.items():
         if len(i) > 1:
             works_for_index[key] = (i | used) ^ used
         else:
             used.add(next(iter(i)))
-
 
 count2 = 1
 for i, item in enumerate((*i,)[0] for i in works_for_index.values()):

@@ -66,10 +66,9 @@ while any([len(i) > 1 for i in works_for_index.values()]):
         else:
             used.add(next(iter(i)))
 
-order = list(next(iter(i)) for i in works_for_index.values())
 
 count2 = 1
-for i, item in enumerate(order):
+for i, item in enumerate((*i,)[0] for i in works_for_index.values()):
     if item.startswith("departure"):
         count2 *= your[i]
 

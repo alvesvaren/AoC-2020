@@ -78,7 +78,7 @@ def get_cubes3d(x, y, z) -> int:
 
 def step3d(maxstep=6):
     global prev_space3d
-    for step in range(maxstep):
+    for _ in range(maxstep):
         prev_space3d = copy(space3d)
         minx, miny, minz = get_mins(False)
         maxx, maxy, maxz = get_maxes(False)
@@ -96,7 +96,7 @@ def step3d(maxstep=6):
 
 def step4d(maxstep=6):
     global prev_space4d
-    for step in range(maxstep):
+    for _ in range(maxstep):
         prev_space4d = copy(space4d)
         minx, miny, minz, minw = get_mins(True)
         maxx, maxy, maxz, maxw = get_maxes(True)

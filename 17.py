@@ -84,7 +84,7 @@ def step3d(maxstep=6):
                         space3d[x, y, z] = False
                     if not cube and cubes == 3:
                         space3d[x, y, z] = True
-    return sum(1 if i else 0 for i in space3d.values())
+    return sum(space3d.values())
 
 
 def step4d(maxstep=6):
@@ -103,7 +103,7 @@ def step4d(maxstep=6):
                             space4d[x, y, z, w] = False
                         if not cube and cubes == 3:
                             space4d[x, y, z, w] = True
-    return sum(1 if i else 0 for i in space4d.values())
+    return sum(space4d.values())
 
 
 print("Part 1:", step3d())

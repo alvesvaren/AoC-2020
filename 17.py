@@ -32,7 +32,7 @@ prev_space3d = space3d.copy()
 prev_space4d = space4d.copy()
 
 
-def get_maxes(four: bool):
+def get_maxes(four: bool) -> tuple[int, ... ]:
     keys = (space4d if four else space3d).keys()
     maxx = max(keys, key=itemgetter(0))[0] + 1
     maxy = max(keys, key=itemgetter(1))[1] + 1
@@ -44,7 +44,7 @@ def get_maxes(four: bool):
     return thing
 
 
-def get_mins(four: bool):
+def get_mins(four: bool) -> tuple[int, ... ]:
     keys = (space4d if four else space3d).keys()
     minx = min(keys, key=itemgetter(0))[0]
     miny = min(keys, key=itemgetter(1))[1]
@@ -79,7 +79,7 @@ def get_cubes3d(x: int, y: int, z: int) -> int:
     return count
 
 
-def step3d(maxstep=6):
+def step3d(maxstep: int = 6):
     global prev_space3d
     for _ in range(maxstep):
         prev_space3d = space3d.copy()
@@ -97,7 +97,7 @@ def step3d(maxstep=6):
     return sum(space3d.values())
 
 
-def step4d(maxstep=6):
+def step4d(maxstep: int = 6):
     global prev_space4d
     for _ in range(maxstep):
         prev_space4d = space4d.copy()

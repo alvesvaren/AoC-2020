@@ -29,25 +29,25 @@ prev_space4d = space4d.copy()
 
 
 def get_maxes(four: bool):
-    space = space4d if four else space3d
-    maxx = max(space.keys(), key=itemgetter(0))[0] + 1
-    maxy = max(space.keys(), key=itemgetter(1))[1] + 1
-    maxz = max(space.keys(), key=itemgetter(2))[2] + 1
+    keys = (space4d if four else space3d).keys()
+    maxx = max(keys, key=itemgetter(0))[0] + 1
+    maxy = max(keys, key=itemgetter(1))[1] + 1
+    maxz = max(keys, key=itemgetter(2))[2] + 1
     thing = maxx, maxy, maxz
     if four:
-        maxw = max(space.keys(), key=itemgetter(3))[3] + 1
+        maxw = max(keys, key=itemgetter(3))[3] + 1
         thing = *thing, maxw
     return thing
 
 
 def get_mins(four: bool):
-    space = space4d if four else space3d
-    minx = min(space.keys(), key=itemgetter(0))[0]
-    miny = min(space.keys(), key=itemgetter(1))[1]
-    minz = min(space.keys(), key=itemgetter(2))[2]
+    keys = (space4d if four else space3d).keys()
+    minx = min(keys, key=itemgetter(0))[0]
+    miny = min(keys, key=itemgetter(1))[1]
+    minz = min(keys, key=itemgetter(2))[2]
     thing = minx, miny, minz
     if four:
-        minw = min(space.keys(), key=itemgetter(3))[3]
+        minw = min(keys, key=itemgetter(3))[3]
         thing = *thing, minw
     return thing
 

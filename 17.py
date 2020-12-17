@@ -4,8 +4,12 @@ import aoc
 
 data = aoc.get_input(17).splitlines()
 
-space3d = defaultdict(bool)
-space4d = defaultdict(bool)
+space3d: defaultdict[
+    tuple[int, int, int], bool
+] = defaultdict(bool)
+space4d: defaultdict[
+    tuple[int, int, int, int], bool
+] = defaultdict(bool)
 
 offsets3d = set()
 offsets4d = set()
@@ -52,7 +56,7 @@ def get_mins(four: bool):
     return thing
 
 
-def get_cubes4d(x, y, z, w) -> int:
+def get_cubes4d(x: int, y: int, z: int, w: int) -> int:
     count = 0
     for offset in offsets4d:
         if prev_space4d[
@@ -64,7 +68,7 @@ def get_cubes4d(x, y, z, w) -> int:
     return count
 
 
-def get_cubes3d(x, y, z) -> int:
+def get_cubes3d(x: int, y: int, z: int) -> int:
     count = 0
     for offset in offsets3d:
         if prev_space3d[

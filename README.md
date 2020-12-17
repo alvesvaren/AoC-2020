@@ -11,3 +11,5 @@ $ python -m aoc
 ```
 
 This will ask you for your session cookie (which can be found in the application tab in most browsers devtools when on adventofcode.com).
+
+> Note: Some solutions need Python 3.9 for the typechecking

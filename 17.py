@@ -80,8 +80,8 @@ def step3d(maxstep=6):
     global prev_space3d
     for step in range(maxstep):
         prev_space3d = copy(space3d)
-        maxx, maxy, maxz = get_maxes(False)
         minx, miny, minz = get_mins(False)
+        maxx, maxy, maxz = get_maxes(False)
         for x in range(minx - 1, maxx + 1):
             for y in range(miny - 1, maxy + 1):
                 for z in range(minz - 1, maxz + 1):
@@ -98,8 +98,8 @@ def step4d(maxstep=6):
     global prev_space4d
     for step in range(maxstep):
         prev_space4d = copy(space4d)
-        maxx, maxy, maxz, maxw = get_maxes(True)
         minx, miny, minz, minw = get_mins(True)
+        maxx, maxy, maxz, maxw = get_maxes(True)
         for x in range(minx - 1, maxx + 1):
             for y in range(miny - 1, maxy + 1):
                 for z in range(minz - 1, maxz + 1):

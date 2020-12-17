@@ -21,7 +21,7 @@ offsets4d.remove((0, 0, 0, 0))
 
 for y, line in enumerate(data):
     for x, char in enumerate(line):
-        val = True if char == "#" else False
+        val = char == "#"
         space3d[x, y, 0] = val
         space4d[x, y, 0, 0] = val
 prev_space3d = space3d.copy()

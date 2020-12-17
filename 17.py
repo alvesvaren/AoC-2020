@@ -1,6 +1,5 @@
 from collections import defaultdict
 from operator import itemgetter
-from copy import copy
 import aoc
 
 data = aoc.get_input(17).splitlines()
@@ -25,8 +24,8 @@ for y, line in enumerate(data):
         val = True if char == "#" else False
         space3d[x, y, 0] = val
         space4d[x, y, 0, 0] = val
-prev_space3d = copy(space3d)
-prev_space4d = copy(space4d)
+prev_space3d = space3d.copy()
+prev_space4d = space4d.copy()
 
 
 def get_maxes(four: bool):
@@ -79,7 +78,7 @@ def get_cubes3d(x, y, z) -> int:
 def step3d(maxstep=6):
     global prev_space3d
     for _ in range(maxstep):
-        prev_space3d = copy(space3d)
+        prev_space3d = space3d.copy()
         minx, miny, minz = get_mins(False)
         maxx, maxy, maxz = get_maxes(False)
         for x in range(minx - 1, maxx + 1):
@@ -97,7 +96,7 @@ def step3d(maxstep=6):
 def step4d(maxstep=6):
     global prev_space4d
     for _ in range(maxstep):
-        prev_space4d = copy(space4d)
+        prev_space4d = space4d.copy()
         minx, miny, minz, minw = get_mins(True)
         maxx, maxy, maxz, maxw = get_maxes(True)
         for x in range(minx - 1, maxx + 1):

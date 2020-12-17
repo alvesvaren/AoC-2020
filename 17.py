@@ -1,7 +1,7 @@
-import aoc
-from copy import copy
-from operator import itemgetter
 from collections import defaultdict
+from operator import itemgetter
+from copy import copy
+import aoc
 
 data = aoc.get_input(17).splitlines()
 

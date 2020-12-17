@@ -56,7 +56,11 @@ def get_mins(four: bool):
 def get_cubes4d(x, y, z, w) -> int:
     count = 0
     for offset in offsets4d:
-        if prev_space4d[x+offset[0], y+offset[1], z+offset[2], w+offset[3]]:
+        if prev_space4d[
+                x+offset[0],
+                y+offset[1],
+                z+offset[2],
+                w+offset[3]]:
             count += 1
     return count
 
@@ -64,7 +68,10 @@ def get_cubes4d(x, y, z, w) -> int:
 def get_cubes3d(x, y, z) -> int:
     count = 0
     for offset in offsets3d:
-        if prev_space3d[x+offset[0], y+offset[1], z+offset[2]]:
+        if prev_space3d[
+                x+offset[0],
+                y+offset[1],
+                z+offset[2]]:
             count += 1
     return count
 

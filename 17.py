@@ -7,16 +7,16 @@ data = aoc.get_input(17).splitlines()
 space3d = defaultdict(bool)
 space4d = defaultdict(bool)
 
-offsets3d = []
-offsets4d = []
+offsets3d = set()
+offsets4d = set()
 for x in range(-1, 2):
     for y in range(-1, 2):
         for z in range(-1, 2):
             for w in range(-1, 2):
-                offsets4d.append((x, y, z, w))
-            offsets3d.append((x, y, z))
-offsets3d.remove((0, 0, 0))
-offsets4d.remove((0, 0, 0, 0))
+                offsets4d.add((x, y, z, w))
+            offsets3d.add((x, y, z))
+offsets3d.remove((0,)*3)
+offsets4d.remove((0,)*4)
 
 
 for y, line in enumerate(data):

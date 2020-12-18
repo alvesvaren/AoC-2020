@@ -14,7 +14,6 @@ def find_parenthese(expression: str, start: int):
         if char == ")":
             depth -= 1
             if depth == 0:
-                # print(i)
                 return i
     raise IndexError
 

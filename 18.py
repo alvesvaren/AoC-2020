@@ -54,9 +54,27 @@ def calc(expression: str, depth: int):
     return value
 
 
+class Thing(int):
+    def __init__(self, value):
+        self.value = value
+
+    def __mul__(self, other):
+        return Thing(self.value + other.value)
+
+    def __sub__(self, other):
+        return Thing(self.value * other.value)
+
+
 sum1, sum2 = 0, 0
 for line in data:
     sum1 += calc(line, 0)
+
+    line = re.sub(
+        r"(\d+)", r"Thing(\1)",
+        line.translate(str.maketrans({"*": "-", "+": "*"}))
+    )
+    sum2 += eval(line)
+
 
 print("Part 1:", sum1)
 print("Part 2:", sum2)

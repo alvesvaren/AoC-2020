@@ -63,5 +63,5 @@ for message in messages:
     if re.fullmatch(meta_rule, message):
         count2 += 1
 
-print(count1)
-print(count2)
+print("Part 1:", count1)
+print("Part 2:", count2)

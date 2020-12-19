@@ -24,10 +24,10 @@ def recurse_rules(num: int, part2: bool) -> str:
             # [(42, 31), (42, 11, 31)]
             r31 = recurse_rules(31, part2)
             r42 = recurse_rules(42, part2)
-            first_part = r"(" + r42 + r31 + r")"
-            return first_part + r"|" + r42 + r"(?R)" + r31
+            first_part = f"({r42}{r31})"
+            return f"{first_part}|{r42}(?R){r31}"
         regex += r")|"
-    return regex[:-1] + r")"
+    return f"{regex[:-1]})"
 
 
 for i, rule in enumerate(raw_rules.splitlines()):

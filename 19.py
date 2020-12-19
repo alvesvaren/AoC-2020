@@ -35,8 +35,6 @@ for i, rule in enumerate(raw_rules.splitlines()):
     i = int(i)
     parts = rule.split(" | ")
     for part in parts:
-        if part == "":
-            continue
         donepart = []
         for subpart in part.split(" "):
             try:
@@ -46,8 +44,7 @@ for i, rule in enumerate(raw_rules.splitlines()):
         rules[i].append(tuple(donepart))
 
 meta_exp1, meta_exp2 = (
-    recurse_rules(0, False), recurse_rules(0, True)
-)
+    recurse_rules(0, False), recurse_rules(0, True))
 count1, count2 = 0, 0
 messages = data.splitlines()
 for message in messages:

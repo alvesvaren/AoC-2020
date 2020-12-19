@@ -1,17 +1,12 @@
-from typing import Generator, Pattern, TypeVar, Union
-import aoc
-import regex as re
 from collections import defaultdict
-from sys import setrecursionlimit
-
-setrecursionlimit(20000)
+import regex as re
+import aoc
 
 raw_rules, data = aoc.get_input(19).split("\n\n")
 rules = defaultdict(list)
 
 
 def recurse_rules(num: int, part2: bool) -> str:
-
     base = rules[num]
     if type(base[0][0]) == str:
         return str(base[0][0])
@@ -50,17 +45,15 @@ for i, rule in enumerate(raw_rules.splitlines()):
                 donepart.append(subpart.replace('"', ""))
         rules[i].append(tuple(donepart))
 
-meta_rule = recurse_rules(0, False)
+meta_exp1, meta_exp2 = (
+    recurse_rules(0, False), recurse_rules(0, True)
+)
 count1, count2 = 0, 0
 messages = data.splitlines()
 for message in messages:
-    if re.fullmatch(meta_rule, message):
+    if re.fullmatch(meta_exp1, message):
         count1 += 1
-
-meta_rule = recurse_rules(0, True)
-
-for message in messages:
-    if re.fullmatch(meta_rule, message):
+    if re.fullmatch(meta_exp2, message):
         count2 += 1
 
 print("Part 1:", count1)

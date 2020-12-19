@@ -9,27 +9,25 @@ setrecursionlimit(20000)
 raw_rules, data = aoc.get_input(19).split("\n\n")
 rules = defaultdict(list)
 
-def recurse_rules(num: int) -> str:
+def recurse_rules(num: int, part2: bool) -> str:
     
     base = rules[num]
-    print(base, num)
     if type(base[0][0]) == str:
         return str(base[0][0])
     regex = r"("
     for part in base:
         regex += r"("
-        if num == 8:
+        if part2 and num == 8:
             regex += r"("
         for subpart in part:
-            regex += recurse_rules(int(subpart))
-            # regex += r"{1,}"
-        if num == 8:
+            regex += recurse_rules(int(subpart), part2)
+        if part2 and num == 8:
             # [(42,), (42, 8)]
-            return recurse_rules(42) + r"+"
-        if num == 11:
+            return recurse_rules(42, part2) + r"+"
+        if part2 and num == 11:
             # [(42, 31), (42, 11, 31)]
-            r31 = recurse_rules(31)
-            r42 = recurse_rules(42)
+            r31 = recurse_rules(31, part2)
+            r42 = recurse_rules(42, part2)
             first_part = r"(" + r42 + r31 + r")"
             return first_part + r"|" + r42 + r"(?R)" + r31
         regex += r")|"
@@ -42,7 +40,6 @@ for i, rule in enumerate(raw_rules.splitlines()):
     for part in parts:
         if part == "":
             continue
-        # print(part)
         donepart = []
         for subpart in part.split(" "):
             try:
@@ -51,19 +48,14 @@ for i, rule in enumerate(raw_rules.splitlines()):
                 donepart.append(subpart.replace('"', ""))
         rules[i].append(tuple(donepart))
 
-meta_rule = recurse_rules(0)
-
+meta_rule = recurse_rules(0, False)
 count1, count2 = 0, 0
 messages = data.splitlines()
 for message in messages:
     if re.fullmatch(meta_rule, message):
         count1 += 1
 
-# rules[8] = [(42,), (42, 8)]
-# rules[11] = [(42, 31), (42, 11, 31)]
-
-meta_rule = recurse_rules(0)
-print(meta_rule)
+meta_rule = recurse_rules(0, True)
 
 for message in messages:
     if re.fullmatch(meta_rule, message):

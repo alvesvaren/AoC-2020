@@ -1,6 +1,6 @@
 from typing import Generator, Pattern, TypeVar, Union
 import aoc
-import re
+import regex as re
 from collections import defaultdict
 from sys import setrecursionlimit
 
@@ -9,7 +9,7 @@ setrecursionlimit(20000)
 raw_rules, data = aoc.get_input(19).split("\n\n")
 rules = defaultdict(list)
 
-def recurse_rules(num: int) -> Union[re.Pattern, str]:
+def recurse_rules(num: int) -> str:
     
     base = rules[num]
     print(base, num)
@@ -18,8 +18,20 @@ def recurse_rules(num: int) -> Union[re.Pattern, str]:
     regex = r"("
     for part in base:
         regex += r"("
+        if num == 8:
+            regex += r"("
         for subpart in part:
             regex += recurse_rules(int(subpart))
+            # regex += r"{1,}"
+        if num == 8:
+            # [(42,), (42, 8)]
+            return recurse_rules(42) + r"+"
+        if num == 11:
+            # [(42, 31), (42, 11, 31)]
+            r31 = recurse_rules(31)
+            r42 = recurse_rules(42)
+            first_part = r"(" + r42 + r31 + r")"
+            return first_part + r"|" + r42 + r"(?R)" + r31
         regex += r")|"
     return regex[:-1] + r")"
 
@@ -41,9 +53,21 @@ for i, rule in enumerate(raw_rules.splitlines()):
 
 meta_rule = recurse_rules(0)
 
-count1 = 0
+count1, count2 = 0, 0
 messages = data.splitlines()
 for message in messages:
     if re.fullmatch(meta_rule, message):
         count1 += 1
+
+# rules[8] = [(42,), (42, 8)]
+# rules[11] = [(42, 31), (42, 11, 31)]
+
+meta_rule = recurse_rules(0)
+print(meta_rule)
+
+for message in messages:
+    if re.fullmatch(meta_rule, message):
+        count2 += 1
+
 print(count1)
+print(count2)

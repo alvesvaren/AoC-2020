@@ -10,23 +10,23 @@ def recurse_rules(num: int, part2: bool) -> str:
     base = rules[num]
     if type(base[0][0]) == str:
         return str(base[0][0])
-    regex = r"("
+    regex = "("
     for part in base:
-        regex += r"("
+        regex += "("
         if part2 and num == 8:
-            regex += r"("
+            regex += "("
         for subpart in part:
             regex += recurse_rules(int(subpart), part2)
         if part2 and num == 8:
             # [(42,), (42, 8)]
-            return recurse_rules(42, part2) + r"+"
+            return recurse_rules(42, part2) + "+"
         if part2 and num == 11:
             # [(42, 31), (42, 11, 31)]
             r31 = recurse_rules(31, part2)
             r42 = recurse_rules(42, part2)
             first_part = f"({r42}{r31})"
             return f"{first_part}|{r42}(?R){r31}"
-        regex += r")|"
+        regex += ")|"
     return f"{regex[:-1]})"
 
 

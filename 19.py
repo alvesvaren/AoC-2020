@@ -9,8 +9,9 @@ setrecursionlimit(20000)
 raw_rules, data = aoc.get_input(19).split("\n\n")
 rules = defaultdict(list)
 
+
 def recurse_rules(num: int, part2: bool) -> str:
-    
+
     base = rules[num]
     if type(base[0][0]) == str:
         return str(base[0][0])
@@ -32,6 +33,7 @@ def recurse_rules(num: int, part2: bool) -> str:
             return first_part + r"|" + r42 + r"(?R)" + r31
         regex += r")|"
     return regex[:-1] + r")"
+
 
 for i, rule in enumerate(raw_rules.splitlines()):
     i, rule = rule.split(": ")

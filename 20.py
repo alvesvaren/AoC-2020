@@ -93,3 +93,7 @@ for bid in map(lambda x: x[0], filter(lambda x: len(x[1]) == 2, things.items()))
     sum1 *= bid
 
 print("Part 1:", sum1)
+
+print(things)
+ordered_things = []
+

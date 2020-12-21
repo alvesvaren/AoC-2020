@@ -311,10 +311,24 @@ def slice_per(source, step):
     return [source[i::step] for i in range(step)]
 
 
+
+
 thing = []
-for y in range(grid_size + 1):
-    for x in range(grid_size + 1):
+thing2 = []
+for x in range(grid_size + 1):
+    thing2.append([])
+    for y in range(grid_size + 1):
+        thing2[x] += new_grid[x,y].get_grid_without_borders()
         thing = list(np.append(thing, new_grid[x,y].get_grid_without_borders()))
+
+thing3 = []
+for y,col in enumerate(thing2[:]):
+    thing3.append([])
+    for row in col:
+        # print(y, row)
+        thing3[y] += row
+
+# pprint(thing3, compact=True)
 
 thing = slice_per(thing, int(len(thing)**.5))
 
@@ -323,6 +337,12 @@ new_new_grid = defaultdict(str)
 for y,line in enumerate(thing):
     for x,t in enumerate(line):
         new_new_grid[x,y] = "#" if t else "."
+
+sorted_grid = dict(sorted(new_grid.items()))
+
+for key,item in sorted_grid.items():
+    print(item)
+
 # print(Block(new_grid[1,0].id, new_grid[1,0].get_grid_without_borders()))
 
 # print()

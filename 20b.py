@@ -1,3 +1,5 @@
+## Cleaned up version of part 1 from day 20
+
 from collections import defaultdict
 import aoc
 data = aoc.get_input(20).split("\n\n")

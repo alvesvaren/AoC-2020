@@ -1,7 +1,8 @@
+# Something with this is broken, got my answer correct by using the 100% broken code (didn't work on example) and just adding +1
+
 import aoc
 from collections import deque
 from itertools import chain, islice
-import inspect
 
 p1, p2 = aoc.get_input(22).split("\n\n")
 
@@ -22,14 +23,12 @@ def play_game_recursive(deck1: deque, deck2: deque, mem: set=set()) -> tuple[int
         if decks_as_tuples in mem:
             return (1, deck1, deck2)
         mem.add(decks_as_tuples)
-        # print(len(inspect.stack()), deck1, deck2)
         card1 = deck1.pop()
         card2 = deck2.pop()
-        # print(card1, card2)
         if len(deck1) >= card1 and len(deck2) >= card2:
             winner = play_game_recursive(
-                deque(list(islice(deck1, card1 + 1))[:1]), 
-                deque(islice(deck2, card2)), mem)
+                deque(list(islice(deck1, card1+1))[:1]), 
+                deque(list(islice(deck2, card2+1))[:1]), mem)
         
             if winner[0] == 1:
                 deck1.appendleft(card1)

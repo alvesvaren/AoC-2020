@@ -1,5 +1,4 @@
 import aoc
-from collections import deque
 
 data = [int(i) for i in aoc.get_input(23).strip()]
 

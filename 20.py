@@ -482,3 +482,6 @@ done_grid = []
     # print()
 # pprint(list(thing2))
 # pprint(grid_without_borders)
+
+
+### I was so bad at making this that it took longer than guessing :(

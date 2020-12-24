@@ -9,15 +9,14 @@ should_continue = False
 for line in data:
     parsed_data.append([])
     should_continue = False
-    for char, next_char in zip(line, line[1:] + "_"):
+    for char, next_char in zip(line, line[1:] + " "):
         if should_continue:
             should_continue = False
             continue
         if char in "sn":
-            parsed_data[-1].append(char + next_char)
+            char += next_char
             should_continue = True
-        else:
-            parsed_data[-1].append(char)
+        parsed_data[-1].append(char)
 
 
 offsets = {

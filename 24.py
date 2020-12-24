@@ -19,24 +19,23 @@ for line in data:
         else:
             parsed_data[-1].append(char)
 
+
+offsets = {
+    "e": (1, 1),
+    "se": (0, 1),
+    "sw": (-1, 0),
+    "w": (-1, -1),
+    "nw": (0, -1),
+    "ne": (1, 0)
+}
+
+
 tiles = defaultdict(bool)
 for line in parsed_data:
     x, y = 0, 0
     for instruction in line:
-        if instruction == "e":
-            x += 1
-            y += 1
-        if instruction == "se":
-            y += 1
-        if instruction == "sw":
-            x -= 1
-        if instruction == "w":
-            x -= 1
-            y -= 1
-        if instruction == "nw":
-            y -= 1
-        if instruction == "ne":
-            x += 1
+        offset = offsets[instruction]
+        x, y = x+offset[0], y+offset[1]
     tiles[x, y] = not tiles[x, y]
 
 
@@ -48,19 +47,9 @@ def get_minmax():
     return minx, miny, maxx, maxy
 
 
-offsets = [
-    (1, 1),
-    (0, 1),
-    (-1, 0),
-    (-1, -1),
-    (0, -1),
-    (1, 0)
-]
-
-
 def get_near_tiles(x: int, y: int):
     count = 0
-    for offset in offsets:
+    for offset in offsets.values():
         if prev_tiles[x+offset[0], y+offset[1]]:
             count += 1
     return count

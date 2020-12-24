@@ -19,6 +19,22 @@ for line in data:
         parsed_data[-1].append(char)
 
 
+# Coordinate system:
+#        / \     / \
+#      /     \ /     \
+#     |  0,-1 |  1,0  |
+#     |  nw   |  ne   |
+#    / \     / \     / \
+#  /     \ /     \ /     \
+# | -1,-1 |  0,0  |  1,1  |
+# |   w   |  ref  |   e   |
+#  \     / \     / \     /
+#    \ /     \ /     \ /
+#     | -1,0  |  0,1  |
+#     |  sw   |  se   |
+#      \     / \     /
+#        \ /     \ /
+
 offsets = {
     "e": (1, 1),
     "se": (0, 1),

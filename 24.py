@@ -65,6 +65,7 @@ def get_near_tiles(x: int, y: int):
             count += 1
     return count
 
+
 def step(maxstep: int = 100):
     global prev_tiles
     for _ in range(maxstep):
@@ -81,11 +82,5 @@ def step(maxstep: int = 100):
     return sum(tiles.values())
 
 
-sum1 = 0
-for value in tiles.values():
-    if value % 2:
-        sum1 += 1
-
-
-print("Part 1:", sum1)
+print("Part 1:", sum(tiles.values()))
 print("Part 2:", step())

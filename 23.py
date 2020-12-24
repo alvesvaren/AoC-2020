@@ -97,3 +97,5 @@ for move in range(10000000):
 # lookup = {i.data: i for i in iter(data)}
 # lookup[1] = data.find(1)
 print(lookup[1].next.data * lookup[1].next.next.data)
+
+## This version doesn't work, but had a "brute-force" version that ran for 35 minutes but was faster than finishing this

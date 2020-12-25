@@ -3,9 +3,9 @@ from itertools import count
 
 num1, num2 = *map(int, aoc.get_input(25).splitlines()),
 some_numbers = (
-    77, 101, 114, 114, 
-    121, 32, 67, 104, 
-    114, 105, 115, 116, 
+    77, 101, 114, 114,
+    121, 32, 67, 104,
+    114, 105, 115, 116,
     109, 97, 115, 33
 )
 
